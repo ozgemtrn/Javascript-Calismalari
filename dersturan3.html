@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dosya arama sayfası</title>
+    <style>
+        .aramacubugu{
+          display: flex;
+          margin: 20px auto;
+          width: 600px;
+        }
+    
+        .aramagırısı{
+          flex: 1;
+          padding: 10px;
+          border: 2px solid #be92b2;
+          border-radius: 5px;
+        }
+    
+        .aramatusu{
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: #c632b2;
+          color: rgb(16, 15, 15);
+        }
+      </style>
+</head>
+<body>
+    <br><br>
+    <div class="aramacubugu">
+      <input type="text" class="aramagırısı" placeholder="tahlil dosyası ara">
+      <button class="aramatusu">Ara</button>
+    </div>
+  
+    <div id="search-results"></div>
+  
+    <script>
+      const searchInput = document.querySelector('.search-input');
+      const searchButton = document.querySelector('.search-button');
+      const searchResults = document.getElementById('search-results');
+  
+      searchButton.addEventListener('click', () => {
+        const query = searchInput.value;
+        console.log(Arama sorgusu: ${query});
+        const mockResults = [
+          { title: "Sonuç 1", content: "İçerik 1" },
+          { title: "Sonuç 2", content: "İçerik 2" },
+          
+        ];
+        searchResults.innerHTML = '';
+        mockResults.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.innerHTML = <h3>${result.title}</h3><p>${result.content}</p>;
+          searchResults.appendChild(resultElement);
+        });
+      });
+    </script>
+</body>
+</html>
